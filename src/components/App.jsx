@@ -42,9 +42,11 @@ useEffect(() => {
   }, [page, query]);
 
   const getSearchQuery = newSearchQuery => {
-    setQuery(newSearchQuery);
-    setPage(1);
-    setResults([]);
+    if (newSearchQuery !== query) {
+      setQuery(newSearchQuery);
+      setPage(1);
+      setResults([]);
+    }
   };
 
   const handleLoadMoreClick = () => {
